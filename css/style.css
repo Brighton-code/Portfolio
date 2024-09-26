@@ -25,7 +25,7 @@ header {
 	display: flex;
 	justify-content: space-between;
 	
-	padding: 20px 40px 15px 40px;
+	padding: 20px 40px 20px 40px;
 }
 header > div {
 	display: flex;
@@ -50,7 +50,42 @@ header > div#header-div a:hover {
 	color: #4ad4ec;
 }
 
-
+main {
+	padding: 20px 40px 20px 40px;
+	min-height: 100%;
+	overflow: auto;
+	display: grid;
+	grid-template-columns: 0.3fr 1fr 0.3fr;
+	/* gap: 40px; */
+}
+main > aside {
+	margin: 0.5rem;
+	border-radius: 1rem;
+}
+main > aside.aside-1>ul {
+	padding: 1rem 1rem 0 1rem;
+}
+main > aside.aside-2>dl {
+	padding-top: 1rem;
+}
+main > aside.aside-2>dl>dd {
+	padding-left: 2rem;
+}
+main > section {
+	margin: 0.5rem;
+}
+main > section > article {
+	padding-top: 1rem;
+}
+main > section > article > p {
+	padding-bottom: 0.5rem;
+}
+main h1, main h2 {
+	padding-top: 1.5rem;
+}
+main section, main aside {
+	padding: 0 1rem 0 1rem;
+}
 
 footer {
 	background-color: #4ad4ec;
