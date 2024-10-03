@@ -2,17 +2,26 @@
 
 $uri = $_SERVER['REQUEST_URI'];
 switch ($uri) {
+	case '':
 	case '/':
-		require 'views/home.view.php';
+		require 'controllers/HomeController.php';
+		$homeController = new HomeController();
+		$homeController->page();
 		break;
 	case '/about':
-		require 'views/about.view.php';
+		require 'controllers/AboutController.php';
+		$aboutController = new AboutController();
+		$aboutController->page();
 		break;
 	case '/contact':
-		require 'views/contact.view.php';
+		require 'controllers/ContactController.php';
+		$contactController = new ContactController();
+		$contactController->page();
 		break;
 	case '/portfolio':
-		require 'views/portfolio.view.php';
+		require 'controllers/PortfolioController.php';
+		$portfolioController = new PortfolioController();
+		$portfolioController->page();
 		break;
 	default:
 		header('HTTP/1.1 404 Not Found');
