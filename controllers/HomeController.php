@@ -2,7 +2,7 @@
 
 class HomeController
 {
-	public function page()
+	public static function page()
 	{
 		$title = 'Home';
 		include 'views/home.view.php';

@@ -1,5 +1,6 @@
 <?php
-require './views/layout/head.php';
+include './views/layout/head.php';
+include './views/layout/nav.php';
 ?>
 <main>
   <aside class="aside-1">
@@ -46,5 +47,5 @@ require './views/layout/head.php';
   </aside>
 </main>
 <?php
-require './views/layout/foot.php';
+include './views/layout/foot.php';
 ?>

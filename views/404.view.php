@@ -1,5 +1,6 @@
 <?php
-require './views/layout/head.php';
+include './views/layout/head.php';
+include './views/layout/nav.php';
 ?>
 <style>
 	main {
@@ -23,5 +24,5 @@ require './views/layout/head.php';
 </script>
 
 <?php
-require './views/layout/foot.php';
+include './views/layout/foot.php';
 ?>

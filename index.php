@@ -5,23 +5,19 @@ switch ($uri) {
 	case '':
 	case '/':
 		require 'controllers/HomeController.php';
-		$homeController = new HomeController();
-		$homeController->page();
+		$homeController::page();
 		break;
 	case '/about':
 		require 'controllers/AboutController.php';
-		$aboutController = new AboutController();
-		$aboutController->page();
+		$aboutController::page();
 		break;
 	case '/contact':
 		require 'controllers/ContactController.php';
-		$contactController = new ContactController();
-		$contactController->page();
+		$contactController::page();
 		break;
 	case '/portfolio':
 		require 'controllers/PortfolioController.php';
-		$portfolioController = new PortfolioController();
-		$portfolioController->page();
+		$portfolioController::page();
 		break;
 	default:
 		header('HTTP/1.1 404 Not Found');

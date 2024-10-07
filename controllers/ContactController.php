@@ -2,7 +2,7 @@
 
 class ContactController
 {
-	public function page()
+	public static function page()
 	{
 		$title = 'Contact';
 		include 'views/contact.view.php';

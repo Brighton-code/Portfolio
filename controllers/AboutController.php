@@ -2,7 +2,7 @@
 
 class AboutController
 {
-	public function page()
+	public static function page()
 	{
 		$title = 'About';
 		include 'views/about.view.php';

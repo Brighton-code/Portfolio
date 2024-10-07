@@ -1,9 +1,10 @@
 <?php
-require './views/layout/head.php';
+include './views/layout/head.php';
+include './views/layout/nav.php';
 ?>
 
 <main></main>
 
 <?php
-require './views/layout/foot.php';
+include './views/layout/foot.php';
 ?>
