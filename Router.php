@@ -2,20 +2,20 @@
 
 class Router {
 
-	public static array $routes = [];
+	public array $routes = [];
 
-	public static function getURI() {
+	public function getURI() {
 		return parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 	}
 
-	public static function add($method, $route, $controller, $function = 'index') {
-		self::$routes[$route] = ['method' => strtoupper($method), 'controller' => $controller, 'function' => $function];
+	public function add($method, $route, $controller, $function = 'index') {
+		$this->routes[$route] = ['method' => strtoupper($method), 'controller' => $controller, 'function' => $function];
 	}
 
-	private static function route($route) {
-		if (self::$routes[$route]['method'] == $_SERVER['REQUEST_METHOD']) {
-			$controllerName = self::$routes[$route]['controller'];
-			$functionName = self::$routes[$route]['function'];
+	private function route($route) {
+		if ($this->routes[$route]['method'] == $_SERVER['REQUEST_METHOD']) {
+			$controllerName = $this->routes[$route]['controller'];
+			$functionName = $this->routes[$route]['function'];
 
 			require_once './controllers/' . $controllerName . '.php';
 			$controller = new $controllerName();
@@ -23,11 +23,11 @@ class Router {
 		}
 	}
 
-	public static function run() {
+	public function run() {
 		$route = self::getURI();
 
-		if (array_key_exists($route, self::$routes)) {
-			self::route($route);
+		if (array_key_exists($route, $this->routes)) {
+			$this->route($route);
 			return 1;
 		}
 

@@ -1,10 +1,11 @@
 <?php
 
 require_once 'Router.php';
+$router = new Router();
 
-Router::add('GET', '/', 'HomeController', 'page');
-Router::add('GET', '/about', 'AboutController', 'page');
-Router::add('GET', '/contact', 'ContactController', 'page');
-Router::add('GET', '/portfolio', 'PortfolioController', 'page');
+$router->add('GET', '/', 'HomeController', 'page');
+$router->add('GET', '/about', 'AboutController', 'page');
+$router->add('GET', '/contact', 'ContactController', 'page');
+$router->add('GET', '/portfolio', 'PortfolioController', 'page');
 
-Router::run();
+$router->run();
