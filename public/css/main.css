@@ -1,0 +1,21 @@
+main {
+	display: grid;
+	min-height: 600px;
+	grid-template-rows: repeat(4, minmax(0, 1fr));
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 24px;
+}
+
+main section {
+	padding: 10px;
+}
+
+main section p {
+	font-size: 20px;
+	padding: 10px 0 0 0;
+}
+
+.about li {
+	margin-left: 18px;
+	font-size: 18px;
+}
