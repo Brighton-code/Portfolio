@@ -35,6 +35,15 @@ body {
 		background-color: blue;
 		color: white;
 	}
+	.svg {
+		color: blue;
+	}
+}
+
+.svg {
+	height: 48px;
+	position: absolute;
+	right: 10px;
 }
 
 .legend {

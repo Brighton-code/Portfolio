@@ -54,12 +54,15 @@
 				<div class="legend">Blog</div>
 			</section>
 			<!-- projecten -->
-			<section class="main-border grid-row-1 grid-col-2">
+			<section class="projects main-border grid-row-1 grid-col-2">
 				<div class="legend">Projecten</div>
-				<p>Projecten</p>
+				<a href="#">Projecten</a>
+				<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
+					<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
+					<path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
+				</svg>
 			</section>
 		</main>
-
 		<footer>
 			<div>© 2024 Portfolio</div>
 			<div class="breadcrums">Homepage</div>
