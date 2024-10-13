@@ -9,25 +9,28 @@
 </head>
 
 <body>
-	<header>
-		<a href="/" class="logo">Logo</a>
+	<div class="container">
+		<header class="main-border">
+			<nav id="header-nav">
+				<a href="/">Home</a>
+				<a href="/portfolio">Portfolio</a>
+				<a href="/blog">Blog</a>
+				<!-- <a href="/about">About</a> -->
+				<a href="/contact">Contact</a>
+				<a href="/login">Login</a>
+			</nav>
+		</header>
 
+		<main>
 
-		<nav id="header-nav">
-			<a href="/">Home</a>
-			<a href="/portfolio">Portfolio</a>
-			<!-- <a href="/about">About</a> -->
-			<a href="/contact">Contact</a>
-		</nav>
-	</header>
+		</main>
 
-	<main></main>
-
-	<footer>
-		<div>© 2024 Portfolio</div>
-		<div class="breadcrums">Homepage</div>
-		<div><a href="mailto:Brighton@vanrouendal.nl">Email: Brighton@vanrouendal.nl</a></div>
-	</footer>
+		<footer>
+			<div>© 2024 Portfolio</div>
+			<div class="breadcrums">Homepage</div>
+			<div><a href="mailto:Brighton@vanrouendal.nl">Email: Brighton@vanrouendal.nl</a></div>
+		</footer>
+	</div>
 </body>
 
 </html>

@@ -1,3 +1,29 @@
 header {
-	background-color: aqua;
+	height: 100px;
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+header > nav {
+	display: flex;
+	gap: 12px;
+}
+
+header a {
+	color: black;
+	text-decoration: none;
+	padding: 5px 10px;
+	font-size: 36px;
+	font-weight: bold;
+	border: 1px solid blue;
+	border-radius: 10px;
+	box-shadow: 2px 2px blue; /* verander naar 1px? */
+}
+
+header a:hover {
+	color: blue;
+	transition: color 0.5s;
 }
