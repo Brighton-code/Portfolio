@@ -27,9 +27,9 @@
 				<div class="legend">Welkom</div>
 				<p>Ik ben <strong>Brighton van Rouendal</strong> een software engineer en jong professional die zijn eerste stappen neemt in het werk leven. Kom bekijk mij portfolio en/of neem contact op met mij ☺</p>
 				<section class="links">
-					<a href="#github"><img src="/public/img/github-mark.png" alt="github" height="36"></a>
-					<a href="#linkedin"><img src="/public/img/LI-In-Bug.png" alt="linkedin" height="36"></a>
-					<a href="#discord"><img src="/public/img/discord-mark-black.png" alt="discord" height="36"></a>
+					<a href="https://github.com/Brighton-code"><img src="/public/img/github-mark.png" alt="github" height="36"></a>
+					<a href="https://www.linkedin.com/in/brighton-van-rouendal-311448186/"><img src="/public/img/LI-In-Bug.png" alt="linkedin" height="36"></a>
+					<!-- <a href="#discord"><img src="/public/img/discord-mark-black.png" alt="discord" height="36"></a> -->
 					<a href="#contact">
 						<p>Contact</p>
 					</a>
