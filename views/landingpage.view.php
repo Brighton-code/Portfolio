@@ -15,7 +15,7 @@
 				<a href="/">Home</a>
 				<a href="/portfolio">Portfolio</a>
 				<!-- <a href="/about">About</a> -->
-				<a href="/experience">ervaring</a>
+				<a href="/experience">Ervaring</a>
 				<a href="/blog">Blog</a>
 				<!-- <a href="/login">Login</a> -->
 			</nav>
