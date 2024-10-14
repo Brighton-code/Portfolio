@@ -54,7 +54,7 @@
 					Al ken ik nog niet veel talen ik ben altijd blij er een bij te leren.</p>
 			</section>
 			<!-- Ervaring -->
-			<section class="internal main-border grid-row-2 grid-col-1">
+			<section class="internal main-border grid-row-1 grid-col-2">
 				<div class="legend">Ervaring</div>
 				<a href="#ervaring">Ervaringen</a>
 				<svg class="svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link">
