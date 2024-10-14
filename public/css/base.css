@@ -38,6 +38,9 @@ body {
 	.svg {
 		color: blue;
 	}
+	.links a img {
+		color: blue;
+	}
 }
 
 .svg {
