@@ -13,8 +13,6 @@
 
 declare(strict_types=1);
 
-namespace Router;
-
 class Router {
 	private array $routes = [];
 

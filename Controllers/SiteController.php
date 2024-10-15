@@ -1,7 +1,5 @@
 <?php
 
-namespace Controller;
-
 class SiteController {
 	public function home() {
 		echo "Home page!";
