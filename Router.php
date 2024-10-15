@@ -4,11 +4,10 @@
  * https://inspector.dev/why-use-declarestrict_types1-in-php-fast-tips/
  * https://zerotomastery.io/blog/php-router/
  * https://en.wikipedia.org/wiki/Regular_expression
- */
-
-/**
- * ChatGPT uses when not knowing something
+ * https://tech.jotform.com/what-is-router-and-how-to-create-your-own-router-with-php-fad811cf2873
+ * https://www.w3schools.com/php/php_namespaces.asp
  * 
+ * ChatGPT uses when not knowing something
  * (in regular expression what does the # do)
  */
 
