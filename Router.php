@@ -20,38 +20,11 @@ class Router {
 	// TODO: change to private
 	public array $routes = [];
 
-	public function add(string $method, string $path, array $controller) {
-		$path = $this->normalizePath($path);
-		$this->routes[] = [
-			'path' => $path,
-			'method' => strtoupper($method),
-			'controller' => $controller,
-			'middlewares' => []
-		];
-	}
-
 	private function normalizePath(string $path): string {
 		$path = trim($path, '/'); // Removes '/' from beginning and end.
 		$path = "/$path"; // add '/' to beginning and end.
 		$path = preg_replace('#[/]{2,}#', '/', $path); // Removes regular expression to remove consecutive '/'. 
 		return $path;
-	}
-
-	public function dispatch() {
-		$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-		$path = $this->normalizePath($path);
-		$method = strtoupper($_SERVER['REQUEST_METHOD']);
-
-		foreach ($this->routes as $route) {
-			if (!preg_match("#^{$route['path']}$#", $path) || $route['method'] !== $method) {
-				continue; // Skip for if not the route
-			}
-
-			[$class, $fucntion] = $route['controller'];
-			$controller = new $class;
-			$controller->{$fucntion}();
-			// (new $class)->{$fucntion}(); // Can also be done like this.
-		}
 	}
 
 	public function addRoute(string $method, string $url, array $controller) {
