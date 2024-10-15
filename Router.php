@@ -17,8 +17,7 @@ declare(strict_types=1);
 namespace Router;
 
 class Router {
-	// TODO: change to private
-	public array $routes = [];
+	private array $routes = [];
 
 	private function normalizePath(string $path): string {
 		$path = trim($path, '/'); // Removes '/' from beginning and end.
