@@ -10,6 +10,10 @@
 			<a class="border link" href="#login">Login</a>
 		</nav>
 	</header>
+
+	<main class="whole">
+		<section class="border whole-section"></section>
+	</main>
 </div>
 
 <?php include 'layouts/foot.php'; ?>
