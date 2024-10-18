@@ -12,7 +12,6 @@
  */
 
 declare(strict_types=1);
-require_once './Core/CustomExceptions.php';
 
 class Router {
 	private array $routes = [];
