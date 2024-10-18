@@ -12,9 +12,7 @@
  */
 
 declare(strict_types=1);
-
-class RouteException extends Exception {
-}
+require_once './Core/CustomExceptions.php';
 
 class Router {
 	private array $routes = [];
@@ -44,12 +42,12 @@ class Router {
 
 					session_start();
 					[$class, $function] = $target;
-					require_once "Controllers/$class.php";
+					require_once "./Controllers/$class.php";
 					(new $class)->{$function}($params);
 					return;
 				}
 			}
 		}
-		throw new Exception('Route not found');
+		throw new RouteException('Route not found');
 	}
 }
