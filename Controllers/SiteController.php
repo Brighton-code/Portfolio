@@ -8,12 +8,4 @@ class SiteController {
 		$id = $uriParams['id'];
 		echo $id;
 	}
-	public function about() {
-		echo "About page!";
-	}
-	public function aboutId($uriParams) {
-		$id = $uriParams['id'];
-		echo $id;
-		echo '<br> About';
-	}
 }
