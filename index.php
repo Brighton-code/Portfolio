@@ -1,5 +1,7 @@
 <?php
 
+$_ENV;
+var_dump(getenv());
 require_once './Core/CustomExceptions.php';
 require_once './Core/Router.php';
 
