@@ -42,6 +42,7 @@ class AccountController extends Database {
 		$_SESSION['username'] = $data['name'];
 		$_SESSION['is_admin'] = $data['is_admin'] ? true : false;
 		header('location: /');
+		exit;
 	}
 
 	public function viewRegister() {
@@ -69,5 +70,6 @@ class AccountController extends Database {
 		session_start();
 		session_destroy();
 		header('location: /');
+		exit;
 	}
 }
