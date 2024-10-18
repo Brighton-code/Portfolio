@@ -13,6 +13,9 @@
 
 declare(strict_types=1);
 
+class RouteException extends Exception {
+}
+
 class Router {
 	private array $routes = [];
 
@@ -39,13 +42,14 @@ class Router {
 					// Pass the captured parameter values as named arguments to the target function
 					$params = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY); // Only keep named subpattern matches
 
+					session_start();
 					[$class, $function] = $target;
+					require_once "Controllers/$class.php";
 					(new $class)->{$function}($params);
 					return;
 				}
 			}
 		}
-		// throw new Exception('Route not found');
-		return 'Route not found';
+		throw new Exception('Route not found');
 	}
 }
