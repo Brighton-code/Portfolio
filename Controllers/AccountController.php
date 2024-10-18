@@ -1,9 +1,6 @@
 <?php
 
 class AccountController extends Database {
-	public function __construct() {
-		$this->register();
-	}
 	public function viewLogin() {
 		include './Views/login.view.php';
 	}
