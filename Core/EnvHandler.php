@@ -5,7 +5,7 @@ class EnvHandler {
 		$env = parse_ini_file('.env');
 
 		foreach ($env as $key => $value) {
-			if (!getenv($key)) {
+			if (getenv($key)) {
 				throw new EnvException("$key already exists.");
 			}
 			putenv("$key=$value");
