@@ -1,10 +1,10 @@
 <?php
 
-$_ENV;
-var_dump(getenv());
 require_once './Core/CustomExceptions.php';
+require_once './Core/EnvHandler.php';
 require_once './Core/Router.php';
 
+EnvHandler::get_env();
 $router = new Router();
 
 $router->addRoute('GET', '/', ['SiteController', 'home']);
