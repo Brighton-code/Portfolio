@@ -1,0 +1,28 @@
+form {
+	height: 100%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 2.5rem;
+}
+
+form input {
+	width: 60%;
+	height: 8rem;
+	text-align: center;
+	font-size: 3rem;
+}
+
+form input::placeholder {
+	color: rgb(180, 180, 180);
+}
+
+form button {
+	width: 60%;
+	height: 8rem;
+	text-align: center;
+	font-size: 3rem;
+	transition: border-color 1.5s, color 1s, background-color 1s;
+}
