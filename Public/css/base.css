@@ -1,0 +1,35 @@
+:root {
+	--base-border: rgb(210, 210, 210);
+	--base-border-hover: rgb(45, 110, 255);
+}
+* {
+	padding: 0;
+	margin: 0;
+	text-decoration: none;
+	box-sizing: border-box;
+	font-family: "Roboto", sans-serif;
+}
+body {
+	height: 100vh;
+}
+.container {
+	max-width: 1000px;
+	width: 80%;
+	margin: auto;
+}
+
+.border {
+	border: 3px solid var(--base-border);
+	border-radius: 20px;
+	transition: border-color 1.5s, color 1s;
+}
+.border:hover {
+	border-color: var(--base-border-hover);
+}
+.link {
+	color: black;
+	/* transition: border-color 1.5s; */
+}
+.link:hover {
+	color: var(--base-border-hover);
+}
