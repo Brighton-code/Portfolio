@@ -39,6 +39,7 @@ class AccountController extends Database {
 			return;
 		}
 
+		$_SESSION['user_id'] = $data['id'];
 		$_SESSION['username'] = $data['name'];
 		$_SESSION['is_admin'] = $data['is_admin'] ? true : false;
 		header('location: /');
@@ -67,7 +68,9 @@ class AccountController extends Database {
 	}
 
 	public function logout() {
-		session_start();
+		if (!isset($_SESSION['user_id'])) {
+			session_start();
+		}
 		session_destroy();
 		header('location: /');
 		exit;
