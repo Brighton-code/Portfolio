@@ -1,6 +1,9 @@
 <?php
 
 class AccountController extends Database {
+	public function __construct() {
+		$this->register();
+	}
 	public function viewLogin() {
 		include './Views/login.view.php';
 	}
@@ -49,15 +52,16 @@ class AccountController extends Database {
 
 	public function register() {
 		$username = 'Brighton';
-		$password = $_ENV['TMP_PASS'];
+		$password = getenv('TMP_PASS');
 		$password = password_hash($password, PASSWORD_DEFAULT);
+		$is_admin = true;
 
 		$conn = self::initialize();
 		try {
 			$stmt = $conn->prepare('INSERT INTO users (name, passwd, is_admin) value (:name, :passwd, :is_admin)');
 			$stmt->bindParam(':name', $username);
 			$stmt->bindParam(':passwd', $password);
-			$stmt->bindParam(':is_admin', 1);
+			$stmt->bindParam(':is_admin', $is_admin, PDO::PARAM_INT);
 			$stmt->execute();
 		} catch (Exception $e) {
 			$error[] = ['msg' => $e->getMessage(), 'type' => 'CRITICAL'];
