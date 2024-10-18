@@ -9,8 +9,8 @@ EnvHandler::get_env();
 $router = new Router();
 
 $router->addRoute('GET', '/', ['SiteController', 'home']);
-$router->addRoute('GET', '/:id', ['SiteController', 'homeId']);
 $router->addRoute('GET', '/login', ['AccountController', 'viewLogin']);
 $router->addRoute('POST', '/login', ['AccountController', 'login']);
+$router->addRoute('GET', '/:id', ['SiteController', 'homeId']);
 
 $router->matchRoute();

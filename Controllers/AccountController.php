@@ -2,6 +2,7 @@
 
 class AccountController extends Database {
 	public function viewLogin() {
+		include './Views/login.view.php';
 	}
 
 	public function login() {
