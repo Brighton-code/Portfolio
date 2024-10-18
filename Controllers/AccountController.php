@@ -66,5 +66,8 @@ class AccountController extends Database {
 	}
 
 	public function logout() {
+		session_start();
+		session_destroy();
+		header('location: /');
 	}
 }
