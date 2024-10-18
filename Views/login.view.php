@@ -1,4 +1,8 @@
-<?php include 'layouts/head.php'; ?>
+<?php include 'layouts/head.php';
+if (isset($error) && !empty($error)) {
+	var_dump($error);
+}
+?>
 <link rel="stylesheet" href="/Public/css/account.css">
 
 <div class="container">
