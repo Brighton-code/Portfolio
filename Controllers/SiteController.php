@@ -1,11 +1,7 @@
 <?php
 
-class SiteController {
-	public function home() {
+class SiteController extends Database {
+	public function index() {
 		echo "Home page!";
-	}
-	public function homeId($uriParams) {
-		$id = $uriParams['id'];
-		echo $id;
 	}
 }
