@@ -1,0 +1,41 @@
+main {
+	height: 100%;
+	display: grid;
+	grid-template-areas: 
+	"welcome welcome photo photo"
+	"about about photo photo"
+	"about about projects projects"
+	"blog experience experience footer";
+	grid-template-columns: repeat(4, 0.25fr);
+	grid-template-rows: repeat(4, 0.25fr);
+	gap: 20px;
+}
+section {
+	min-height: fit-content;
+}
+
+.svg {
+	height: 3rem;
+}
+
+#welcome {
+	grid-area: welcome;
+}
+#photo {
+	grid-area: photo;
+}
+#about {
+	grid-area: about;
+}
+#experience {
+	grid-area: experience;
+}
+#blog {
+	grid-area: blog;
+}
+#projects {
+	grid-area: projects;
+}
+#footer {
+	grid-area: footer;
+}

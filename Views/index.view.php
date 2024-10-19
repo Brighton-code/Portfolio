@@ -10,7 +10,7 @@ if (isset($error) && !empty($error)) {
 
 	<main>
 		<!-- welkom -->
-		<section class="">
+		<section id="welcome" class="border">
 			<div class="legend">Welkom</div>
 			<p>Ik ben <strong>Brighton van Rouendal</strong> een software engineer en jong professional die zijn eerste stappen neemt in het werk leven. Kom bekijk mij portfolio en/of neem contact op met mij ☺</p>
 			<section class="links">
@@ -23,12 +23,12 @@ if (isset($error) && !empty($error)) {
 			</section>
 		</section>
 		<!-- photo -->
-		<section class="">
+		<section id="photo" class="border">
 			<div class="legend">Photo</div>
 			<img src="#" alt="photo Brighton van Rouendal" width="100%" height="100%">
 		</section>
 		<!-- about -->
-		<section class="">
+		<section id="about" class="border">
 			<div class="legend">Over mij</div>
 			<p>Hallo, ik ben Brighton van Rouendal een software engineer uit Nederland die gepassioneerd is in het maken van project.</p>
 			<p>De programmeer talen die ik ken</p>
@@ -41,7 +41,7 @@ if (isset($error) && !empty($error)) {
 				Al ken ik nog niet veel talen ik ben altijd blij er een bij te leren.</p>
 		</section>
 		<!-- Ervaring -->
-		<section class="" onclick="location.href = '/experience'">
+		<section id="experience" class="border" onclick="location.href = '/experience'">
 			<div class="legend">Ervaring</div>
 			<h3>Ervaring</h3>
 			<!--				<a href="/experience">Ervaringen</a>-->
@@ -51,7 +51,7 @@ if (isset($error) && !empty($error)) {
 			</svg>
 		</section>
 		<!-- blog -->
-		<section class="" onclick="location.href = '/blog'">
+		<section id="blog" class="border" onclick="location.href = '/blog'">
 			<div class="legend">Blog wip</div>
 			<h3>Blog</h3>
 			<!--				<a href="/blog">Blog</a>-->
@@ -61,7 +61,7 @@ if (isset($error) && !empty($error)) {
 			</svg>
 		</section>
 		<!-- projecten -->
-		<section class="" onclick="location.href = '/projects'">
+		<section id="projects" class="border" onclick="location.href = '/projects'">
 			<div class="legend">Projecten</div>
 			<h3>Projecten</h3>
 			<!--				<a href="/projects">Projecten</a>-->
@@ -72,7 +72,7 @@ if (isset($error) && !empty($error)) {
 				<path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
 			</svg>
 		</section>
-		<section class="">
+		<section id="footer" class="border">
 			<div class="legend">Footer</div>
 			<footer>
 				<p>© 2024 Portfolio</p>
