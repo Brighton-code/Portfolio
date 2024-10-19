@@ -23,6 +23,24 @@ body {
 	margin: auto;
 }
 
+header {
+	height: 10vh;
+}
+
+nav {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+}
+
+nav a {
+	font-size: xx-large;
+	font-weight: 500;
+	padding: 10px 15px;
+}
+
 .border {
 	border: 3px solid var(--base-border);
 	border-radius: 20px;
@@ -37,4 +55,16 @@ body {
 }
 .link:hover {
 	color: var(--base-border-hover);
+}
+
+.whole {
+	height: 100%;
+	display: grid;
+	grid-template-rows: repeat(4, 1fr);
+	grid-template-columns: repeat(4, 1fr);
+}
+
+.whole-section {
+	grid-row: span 1;
+	grid-column: span 1;
 }
