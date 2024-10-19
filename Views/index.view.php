@@ -4,9 +4,14 @@ if (isset($error) && !empty($error)) {
 }
 ?>
 
+<link rel="stylesheet" href="/Public/css/index.css">
 <div class="container">
 	<?php include 'layouts/nav.php' ?>
+
+	<main>
+
+	</main>
 </div>
 
 
-<?php include 'layouts/head.php' ?>
+<?php include 'layouts/foot.php' ?>

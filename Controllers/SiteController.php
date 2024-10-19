@@ -2,6 +2,6 @@
 
 class SiteController extends Database {
 	public function index() {
-		echo "Home page!";
+		include './Views/index.view.php';
 	}
 }
