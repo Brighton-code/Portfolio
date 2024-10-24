@@ -1,0 +1,31 @@
+main {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 24px;
+}
+
+main>section {
+	flex: 40%;
+	padding: 10px;
+	text-overflow: ellipsis;
+}
+
+.title {
+	font-size: 1.75rem;
+}
+.subtext {
+	padding: 3px 0 0 0;
+	font-size: 1rem;
+	color: #999;
+}
+.description-container {
+	padding: 5px 5px 0 0;
+}
+.description {
+	font-size: 1.25rem;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
