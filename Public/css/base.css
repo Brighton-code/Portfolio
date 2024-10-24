@@ -93,3 +93,18 @@ nav a:hover {
 	right: 10px;
 	transition: color 1s;
 }
+
+#admin-section {
+	display: flex;
+	justify-content: flex-end;
+}
+#admin-section>a {
+	color: black;
+	font-size: x-large;
+	font-weight: 500;
+	padding: 15px 10px;
+}
+#admin-section>a:hover {
+	color: var(--base-border-hover);
+	transition: border-color 1s, color 1s;
+}

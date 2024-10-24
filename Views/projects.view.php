@@ -8,6 +8,12 @@ if (isset($error) && !empty($error)) {
 <div class="container">
 	<?php include 'layouts/nav.php' ?>
 
+	<?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']): ?>
+		<aside id="admin-section">
+			<a class="border internal" href="/projects/create">Create Project</a>
+		</aside>
+	<?php endif; ?>
+
 	<main>
 		<?php foreach ($data as $project): ?>
 			<section class="border internal" onclick="location.href = '/projects/<?= $project['id']; ?>'">
