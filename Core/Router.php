@@ -14,39 +14,77 @@
 declare(strict_types=1);
 
 class Router {
-	private array $routes = [];
-
-	private function normalizePath(string $path): string {
-		$path = trim($path, '/'); // Removes '/' from beginning and end.
-		$path = "/$path"; // add '/' to beginning and end.
-		$path = preg_replace('#[/]{2,}#', '/', $path); // Removes regular expression to remove consecutive '/'. 
-		return $path;
+	protected array $routes = [];
+	private function parseUri(string $uri): array {
+		$uri = parse_url($uri, PHP_URL_PATH); // parse url to strip params and unused charters
+		$uri = trim($uri, '/'); // removes '/' from beginning and end
+		$uri = '/' . $uri; // adds '/' to beginning
+		match ($uri) {
+			'', '/' => $uri = ['/'], // if uri == '' or '/'
+			default => $uri = explode('/', $uri), // else split uri into sections
+		};
+		return $uri;
 	}
 
-	public function addRoute(string $method, string $url, array $controller) {
-		$this->routes[$method][$url] = $controller;
+	/**
+	 * Change $method to use enum?
+	 */
+	public function addRoute(string $method, string $uri, array $controller): void {
+		$uri = $this->parseUri($uri);
+		/**
+		 * uri => array of uri sections
+		 * uriLength => length of uri array
+		 * controller => array of [controller and function to call]
+		 */
+		$this->routes[$method]['uriData'][] = [
+			'uri' => $uri,
+			'uriLength' => count($uri),
+			'controller' => $controller,
+		];
 	}
 
-	public function matchRoute() {
-		$method = $_SERVER['REQUEST_METHOD'];
-		$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-		$url = $this->normalizePath($uri);
-		if (isset($this->routes[$method])) {
-			foreach ($this->routes[$method] as $routeUrl => $target) {
-				// Use named subpatterns in the regular expression pattern to capture each parameter value separately
-				$pattern = preg_replace('/\/:([^\/]+)/', '/(?P<$1>[^/]+)', $routeUrl);
-				if (preg_match('#^' . $pattern . '$#', $url, $matches)) {
-					// Pass the captured parameter values as named arguments to the target function
-					$params = array_filter($matches, 'is_string', ARRAY_FILTER_USE_KEY); // Only keep named subpattern matches
+	public function matchRoute(): void {
+		$uri = $this->parseUri($_SERVER['REQUEST_URI']); // array of uri sections of current uri
+		$uriLength = count($uri); // length of uri sections
+		$method = $_SERVER['REQUEST_METHOD']; // current method 'GET', 'POST'
+		$params = []; // array of params "which are started with ':' in the add route"
 
+		// Loop through all routes
+		foreach ($this->routes[$method]['uriData'] as $routeData) {
+			// If the length of the array does not equel eachother skip route
+			if ($routeData['uriLength'] != $uriLength) {
+				continue;
+			}
+
+			// Loop trough uri sections
+			foreach ($routeData['uri'] as $index => $uriSection) {
+				$firstChar = substr($uriSection, 0, 1); // get first character of section
+				// If the sections aren't totally equel between uri and data check
+				// If firstcharacter != ':' if then skip route
+				if ($uriSection != $uri[$index]) {
+					if ($firstChar != ':') {
+						continue 2;
+					}
+				}
+
+				// If firstcharacter == ':' it means it is a param
+				// Insert into params array as key => value
+				if ($firstChar == ':') {
+					$key = substr($uriSection, 1);
+					$params[$key] = $uri[$index];
+				}
+
+				// If index of current section equels length of given uri section array - 1
+				if ($uriLength - 1 == $index) {
 					session_start();
-					[$class, $function] = $target;
-					require_once "./Controllers/$class.php";
-					(new $class)->{$function}($params);
+					[$controller, $function] = $routeData['controller'];
+					require_once "./Controllers/$controller.php";
+					(new $controller)->$function($params);
 					return;
 				}
 			}
 		}
-		throw new RouteException('Route not found');
+		include './Views/404.view.php';
+		// throw new RouteException('Route not found!');
 	}
 }
