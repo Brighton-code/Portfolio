@@ -1,3 +1,12 @@
+main {
+	width: 100%;
+	min-height: 800px;
+	display: flex;
+}
+section {
+	width: 100%;
+}
+
 form {
 	height: 100%;
 	width: 100%;
@@ -9,7 +18,7 @@ form {
 }
 
 form input {
-	width: 60%;
+	max-width: 600px;
 	height: 8rem;
 	text-align: center;
 	font-size: 3rem;
@@ -20,8 +29,9 @@ form input::placeholder {
 }
 
 form button {
-	width: 60%;
+	min-width: 600px;
 	height: 8rem;
+	cursor: pointer;
 	text-align: center;
 	font-size: 3rem;
 	transition: border-color 1.5s, color 1s, background-color 1s;

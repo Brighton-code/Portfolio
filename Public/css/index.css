@@ -1,22 +1,66 @@
 main {
-	height: 100%;
+	height: fit-content;
 	display: grid;
-	grid-template-areas: 
+	/* grid-template-areas: 
 	"welcome welcome photo photo"
 	"about about photo photo"
 	"about about projects projects"
 	"blog experience experience footer";
 	grid-template-columns: repeat(4, 0.25fr);
 	grid-template-rows: repeat(4, 0.25fr);
-	gap: 20px;
+	gap: 20px; */
+	grid-template-rows: repeat(4, minmax(0, 1fr));
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	grid-template-areas:
+		"welcome welcome photo photo"
+		"about about photo photo"
+		"about about projects projects"
+		"blog experience experience footer";
+	gap: 24px;
 }
-section {
-	min-height: fit-content;
+main>section {
+	padding: 10px;
 }
 
-.svg {
-	height: 3rem;
+main>section p {
+	font-size: 1.3rem;
+	padding: 10px 0 0 0;
 }
+
+.links {
+	padding: 10px 0 0 0;
+	display: flex;
+	flex-direction: row;
+	gap: 12px;
+}
+.links a {
+	text-decoration: none;
+	border: 1px solid var(--base-border-hover);
+	border-radius: 10px;
+	box-shadow: 2px 2px var(--base-border-hover);
+
+	height: 48px;
+	width: fit-content;
+	padding: 10px 5px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.links a p {
+	color: black;
+	padding: 0;
+	text-decoration: none;
+	font-weight: bold;
+}
+.links a p:hover {
+	color: var(--base-border-hover);
+	transition: color 0.5s;
+}
+#about li {
+	font-size: 1.1rem;
+	margin: 0 0 0 1rem;
+}
+
 
 #welcome {
 	grid-area: welcome;

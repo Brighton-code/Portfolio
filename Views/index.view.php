@@ -41,7 +41,7 @@ if (isset($error) && !empty($error)) {
 				Al ken ik nog niet veel talen ik ben altijd blij er een bij te leren.</p>
 		</section>
 		<!-- Ervaring -->
-		<section id="experience" class="border" onclick="location.href = '/experience'">
+		<section id="experience" class="border internal" onclick="location.href = '/experience'">
 			<div class="legend">Ervaring</div>
 			<h3>Ervaring</h3>
 			<!--				<a href="/experience">Ervaringen</a>-->
@@ -51,9 +51,10 @@ if (isset($error) && !empty($error)) {
 			</svg>
 		</section>
 		<!-- blog -->
-		<section id="blog" class="border" onclick="location.href = '/blog'">
+		<section id="blog" class="border internal" onclick="location.href = '/blog'">
 			<div class="legend">Blog wip</div>
 			<h3>Blog</h3>
+			<!-- <h3>Blog</h3> -->
 			<!--				<a href="/blog">Blog</a>-->
 			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="svg">
 				<path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
@@ -61,7 +62,7 @@ if (isset($error) && !empty($error)) {
 			</svg>
 		</section>
 		<!-- projecten -->
-		<section id="projects" class="border" onclick="location.href = '/projects'">
+		<section id="projects" class="border internal" onclick="location.href = '/projects'">
 			<div class="legend">Projecten</div>
 			<h3>Projecten</h3>
 			<!--				<a href="/projects">Projecten</a>-->
@@ -75,8 +76,8 @@ if (isset($error) && !empty($error)) {
 		<section id="footer" class="border">
 			<div class="legend">Footer</div>
 			<footer>
-				<p>© 2024 Portfolio</p>
 				<p>Homepage</p>
+				<p>© 2024 Portfolio</p>
 			</footer>
 		</section>
 	</main>
