@@ -9,10 +9,15 @@ if (isset($error) && !empty($error)) {
 	<?php include 'layouts/nav.php' ?>
 
 	<main>
-		<?php var_dump($data) ?>
 		<?php if (!empty($data)): ?>
 			<section class="border">
-				<h1><?= $data['title'] ?></h1>
+				<h1 class="title"><?= $data['title'] ?></h1>
+				<div class="sub">
+					<p class="subtext"><em>Author: <?= $data['name']; ?></em></p>
+					<p class="subtext"><em>Created At: <?= $data['created_at']; ?></em></p>
+				</div>
+				<p class="text description"><?= $data['description']; ?></p>
+				<p class="text content"><?= $data['content']; ?></p>
 			</section>
 		<?php endif; ?>
 	</main>
