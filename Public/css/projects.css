@@ -5,6 +5,8 @@ main {
 }
 
 main>section {
+	display: flex;
+	flex-direction: column;
 	flex: 40%;
 	padding: 10px;
 	text-overflow: ellipsis;
