@@ -17,6 +17,9 @@ if (isset($error) && !empty($error)) {
 				<a href="https://github.com/Brighton-code"><img src="/public/img/github-mark.png" alt="github" height="36"></a>
 				<a href="https://www.linkedin.com/in/brighton-van-rouendal-311448186/"><img src="/public/img/LI-In-Bug.png" alt="linkedin" height="36"></a>
 				<!-- <a href="#discord"><img src="/public/img/discord-mark-black.png" alt="discord" height="36"></a> -->
+				<a download="#cv" href="#cv">
+					<p>CV</p>
+				</a>
 				<a href="/contact">
 					<p>Contact</p>
 				</a>
