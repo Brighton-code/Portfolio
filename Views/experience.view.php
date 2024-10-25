@@ -10,14 +10,28 @@ if (isset($error) && !empty($error)) {
 
 	<?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']): ?>
 		<aside id="admin-section">
-			<a class="border internal" href="/experience/create">Create experience</a>
+			<a class="border internal" href="/ervaring/create">Create Ervaring</a>
 		</aside>
 	<?php endif; ?>
 
 	<main>
 		<?php foreach ($data as $experience): ?>
-			<section class="border internal" onclick="location.href = '/experience/<?= $experience['id']; ?>'">
-
+			<section class="border">
+				<h1 class="company"><?= $experience['company'] ?></h1>
+				<div class="sub">
+					<p class="function"><?= $experience['func'] ?></p>
+					<section class="time">
+						<p><?= $experience['date_from'] ?></p>
+						<p><em>to</em></p>
+						<p><?= $experience['date_to'] ?></p>
+					</section>
+				</div>
+				<?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']): ?>
+					<aside class="admin-section">
+						<a class="border internal update" href="/ervaring/<?= $experience['id']; ?>/update">Update</a>
+						<a class="border internal delete" href="/ervaring/<?= $experience['id']; ?>/delete">Delete</a>
+					</aside>
+				<?php endif; ?>
 			</section>
 		<?php endforeach; ?>
 	</main>

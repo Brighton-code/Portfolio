@@ -1,0 +1,53 @@
+main {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 24px;
+}
+
+main>section {
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+	flex: 40%;
+}
+
+.company {
+	font-size: 2rem;
+	text-align: center;
+}
+
+.sub {
+	display: flex;
+	justify-content: space-between;
+}
+.sub .function {
+	font-size: 1.5rem;
+}
+.sub .time {
+	display: flex;
+	gap: 8px;
+	align-items: center;
+	color: #555;
+}
+
+.admin-section {
+	display: flex;
+	justify-content: flex-end;
+	gap: 12px;
+	padding: 10px 0 0 0;
+}
+.admin-section>a {
+	color: black;
+	font-weight: 500;
+	padding: 5px 5px;
+}
+.admin-section>a:hover {
+	color: var(--base-border-hover);
+	transition: border-color 1s, color 1s;
+}
+.admin-section>.update {
+	color: green;
+}
+.admin-section>.delete {
+	color: red;
+}
