@@ -38,4 +38,8 @@ class ProjectController extends Database {
 		}
 		include './Views/single.projects.view.php';
 	}
+
+	public function createProject() {
+		include './Views/form.projects.view.php';
+	}
 }
