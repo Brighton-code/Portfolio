@@ -1,0 +1,13 @@
+main {
+	display: flex;
+	height: 60vh;
+}
+main>section {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+main>section>h1 {
+	font-size: 4rem;
+}
