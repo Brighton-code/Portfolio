@@ -23,7 +23,11 @@ if (isset($error) && !empty($error)) {
 					<section class="time">
 						<p><?= $experience['date_from'] ?></p>
 						<p><em>to</em></p>
-						<p><?= $experience['date_to'] ?></p>
+						<p><?php if ($experience['date_to'] >= '2100-01-01') {
+								echo 'Future';
+							} else {
+								echo $experience['date_to'];
+							} ?></p>
 					</section>
 				</div>
 				<?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']): ?>

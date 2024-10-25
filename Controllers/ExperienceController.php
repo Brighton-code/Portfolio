@@ -37,7 +37,11 @@ class ExperienceController extends Database {
 		$company = htmlspecialchars($_POST['company']);
 		$func = htmlspecialchars($_POST['func'] ?? null);
 		$date_from = $_POST['date_from'];
-		$date_to = $_POST['date_to'];
+		if ($_POST['date_to'] !== '' || $_POST['date_to'] > '2100-01-01') {
+			$date_to = '2100-01-01';
+		} else {
+			$date_to = $_POST['date_to'];
+		}
 
 		$conn = self::initialize();
 		try {
@@ -49,6 +53,7 @@ class ExperienceController extends Database {
 			$stmt->bindParam(':date_to', $date_to);
 			$stmt->execute();
 		} catch (Exception $e) {
+			die(var_dump($e->getMessage()));
 		}
 		$this->index();
 	}
@@ -88,7 +93,11 @@ class ExperienceController extends Database {
 		$company = htmlspecialchars($_POST['company']);
 		$func = htmlspecialchars($_POST['func'] ?? null);
 		$date_from = $_POST['date_from'];
-		$date_to = $_POST['date_to'];
+		if ($_POST['date_to'] !== '' || $_POST['date_to'] > '2100-01-01') {
+			$date_to = '2100-01-01';
+		} else {
+			$date_to = $_POST['date_to'];
+		}
 
 		$conn = self::initialize();
 		try {
