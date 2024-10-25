@@ -44,7 +44,7 @@ if (isset($error) && !empty($error)) {
 				Al ken ik nog niet veel talen ik ben altijd blij er een bij te leren.</p>
 		</section>
 		<!-- Ervaring -->
-		<section id="experience" class="border internal" onclick="location.href = '/experience'">
+		<section id="experience" class="border internal" onclick="location.href = '/ervaring'">
 			<div class="legend">Ervaring</div>
 			<h3>Ervaring</h3>
 			<!--				<a href="/experience">Ervaringen</a>-->
