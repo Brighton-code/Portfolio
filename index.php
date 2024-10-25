@@ -17,5 +17,6 @@ $router->addRoute('GET', '/projects', ['ProjectController', 'index']);
 $router->addRoute('POST', '/projects', ['ProjectController', 'createProject']);
 $router->addRoute('GET', '/projects/create', ['ProjectController', 'createProjectView']);
 $router->addRoute('GET', '/projects/:id', ['ProjectController', 'viewProject']);
+$router->addRoute('GET', '/projects/:id/update', ['ProjectController', 'updateProject']);
 
 $router->matchRoute();
