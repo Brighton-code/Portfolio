@@ -97,6 +97,7 @@ nav a:hover {
 #admin-section {
 	display: flex;
 	justify-content: flex-end;
+	gap: 24px;
 }
 #admin-section>a {
 	color: black;

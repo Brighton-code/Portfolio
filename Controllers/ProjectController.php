@@ -39,13 +39,12 @@ class ProjectController extends Database {
 			return;
 		}
 
-		$error = [];
-
 		$user_id = intval($_POST['user_id']);
 		$title = htmlspecialchars($_POST['title']);
 		$description = htmlspecialchars($_POST['description'] ?? null);
 		$content = htmlspecialchars($_POST['content']);
 
+		$error = [];
 		$conn = self::initialize();
 		try {
 			$stmt = $conn->prepare('INSERT INTO projects (user_id, title, description, content) VALUE (:user_id, :title, :description, :content)');
@@ -57,15 +56,62 @@ class ProjectController extends Database {
 		} catch (Exception $e) {
 			$error[] = ['msg' => $e->getMessage(), 'type' => 'CRITICAL'];
 		}
-
 		$this->index();
+	}
+
+	public function updateProjectView($paramaters) {
+		$id = $paramaters['id'];
+		if (!isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
+			header("Location: /projects/$id");
+			exit;
+		}
+		[$data, $error] = $this->getProjectById($id);
+		include './Views/form.projects.view.php';
 	}
 
 	public function updateProject($paramaters) {
 		$id = $paramaters['id'];
-		$error = [];
-		$data = [];
+		if (!isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
+			$this->viewProject($paramaters);
+			return;
+		}
+
+		$user_id = intval($_POST['user_id']);
+		$title = htmlspecialchars($_POST['title']);
+		$description = htmlspecialchars($_POST['description'] ?? null);
+		$content = htmlspecialchars($_POST['content']);
+
 		$conn = self::initialize();
+		try {
+			$stmt = $conn->prepare('UPDATE projects SET user_id = :user_id, title = :title, description = :description, content = :content WHERE id = :id');
+			$stmt->bindParam(':id', $id);
+			$stmt->bindParam(':user_id', $user_id);
+			$stmt->bindParam(':title', $title);
+			$stmt->bindParam(':description', $description);
+			$stmt->bindParam(':content', $content);
+			$stmt->execute();
+		} catch (Exception $e) {
+		}
+		$this->updateProjectView($paramaters);
+	}
+
+	public function deleteProject($paramaters) {
+		$id = $paramaters['id'];
+		if (!isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
+			$this->viewProject($paramaters);
+			return;
+		}
+
+		$conn = self::initialize();
+		try {
+			$stmt = $conn->prepare('DELETE FROM projects WHERE id = :id');
+			$stmt->bindParam(':id', $id);
+			$stmt->execute();
+		} catch (Exception $e) {
+		}
+
+		header('Location: /projects');
+		exit;
 	}
 
 	private function getProjectById($id) {
