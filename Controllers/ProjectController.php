@@ -41,13 +41,18 @@ class ProjectController extends Database {
 
 	public function createProjectView() {
 		if (!isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
-			header('Location: /');
+			header('Location: /projects');
 			exit;
 		}
 		include './Views/form.projects.view.php';
 	}
 
 	public function createProject() {
+		if (!isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
+			$this->index();
+			return;
+		}
+
 		$error = [];
 
 		$user_id = intval($_POST['user_id']);
