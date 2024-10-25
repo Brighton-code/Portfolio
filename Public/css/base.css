@@ -109,3 +109,10 @@ nav a:hover {
 	color: var(--base-border-hover);
 	transition: border-color 1s, color 1s;
 }
+#admin-section>.update {
+	color: green;
+}
+
+#admin-section>.delete {
+	color: red;
+}

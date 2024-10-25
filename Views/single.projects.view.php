@@ -10,8 +10,8 @@ if (isset($error) && !empty($error)) {
 
 	<?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']): ?>
 		<aside id="admin-section">
-			<a class="border internal" href="/projects/<?= $data['project_id']; ?>/update">Update</a>
-			<a class="border internal" href="/projects/<?= $data['project_id']; ?>/delete">Delete</a>
+			<a class="border internal update" href="/projects/<?= $data['project_id']; ?>/update">Update</a>
+			<a class="border internal delete" href="/projects/<?= $data['project_id']; ?>/delete">Delete</a>
 		</aside>
 	<?php endif; ?>
 

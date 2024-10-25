@@ -56,7 +56,7 @@ class ExperienceController extends Database {
 	public function updateView($paramaters) {
 		$id = $paramaters['id'];
 		if (!isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
-			header("Location: /projects/$id");
+			header("Location: /ervaring");
 			exit;
 		}
 		$error = [];
@@ -80,7 +80,7 @@ class ExperienceController extends Database {
 	public function update($paramaters) {
 		$id = $paramaters['id'];
 		if (!isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
-			header("Location: /projects/$id");
+			header("Location: /ervaring");
 			exit;
 		}
 
