@@ -39,7 +39,34 @@ class ProjectController extends Database {
 		include './Views/single.projects.view.php';
 	}
 
-	public function createProject() {
+	public function createProjectView() {
+		if (!isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
+			header('Location: /');
+			exit;
+		}
 		include './Views/form.projects.view.php';
+	}
+
+	public function createProject() {
+		$error = [];
+
+		$user_id = intval($_POST['user_id']);
+		$title = htmlspecialchars($_POST['title']);
+		$description = htmlspecialchars($_POST['description'] ?? null);
+		$content = htmlspecialchars($_POST['content']);
+
+		$conn = self::initialize();
+		try {
+			$stmt = $conn->prepare('INSERT INTO projects (user_id, title, description, content) VALUE (:user_id, :title, :description, :content)');
+			$stmt->bindParam(':user_id', $user_id);
+			$stmt->bindParam(':title', $title);
+			$stmt->bindParam(':description', $description);
+			$stmt->bindParam(':content', $content);
+			$stmt->execute();
+		} catch (Exception $e) {
+			$error[] = ['msg' => $e->getMessage(), 'type' => 'CRITICAL'];
+		}
+
+		$this->index();
 	}
 }

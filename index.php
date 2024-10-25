@@ -14,7 +14,8 @@ $router->addRoute('POST', '/login', ['AccountController', 'login']);
 $router->addRoute('GET', '/logout', ['AccountController', 'logout']);
 
 $router->addRoute('GET', '/projects', ['ProjectController', 'index']);
-$router->addRoute('GET', '/projects/create', ['ProjectController', 'createProject']);
+$router->addRoute('POST', '/projects', ['ProjectController', 'createProject']);
+$router->addRoute('GET', '/projects/create', ['ProjectController', 'createProjectView']);
 $router->addRoute('GET', '/projects/:id', ['ProjectController', 'viewProject']);
 
 $router->matchRoute();

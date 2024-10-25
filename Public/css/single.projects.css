@@ -23,3 +23,33 @@ main>section {
 .content {
 	font-size: 1.75rem;
 }
+
+.save-form {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	gap: 2rem;
+}
+.save-form input, .save-form textarea {
+	padding: 1rem;
+	min-width: 640px;
+}
+.save-form input {
+	font-size: 3rem;
+	text-align: center;
+}
+.save-form textarea {
+	font-size: 1.5rem;
+}
+.save-form ::placeholder {
+	color: rgb(180, 180, 180);
+}
+.save-form button {
+	min-width: 640px;
+	height: 8rem;
+	cursor: pointer;
+	text-align: center;
+	font-size: 3rem;
+	transition: border-color 1.5s, color 1s, background-color 1s;
+}
