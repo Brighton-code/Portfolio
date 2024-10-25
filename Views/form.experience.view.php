@@ -22,7 +22,7 @@ if (isset($error) && !empty($error)) {
 					<button class="border" type="submit">Submit</button>
 				</form>
 			<?php else: ?>
-				<form class="save-form" action="/projects/<?= $data['id'] ?>" method="post">
+				<form class="save-form" action="/ervaring/<?= $data['id'] ?>/update" method="post">
 					<input type="text" hidden name="post_id" value="<?= $data['id']; ?>">
 					<input type="number" hidden name="user_id" value="<?= $data['user_id']; ?>">
 					<input class="border" type="text" name="company" maxlength="50" required placeholder="Company" value="<?= $data['company'] ?>">

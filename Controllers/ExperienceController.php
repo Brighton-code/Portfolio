@@ -52,4 +52,76 @@ class ExperienceController extends Database {
 		}
 		$this->index();
 	}
+
+	public function updateView($paramaters) {
+		$id = $paramaters['id'];
+		if (!isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
+			header("Location: /projects/$id");
+			exit;
+		}
+		$error = [];
+		$data = [];
+		$conn = self::initialize();
+		try {
+			$stmt = $conn->prepare('SELECT * FROM experience WHERE id = :id');
+			$stmt->bindParam(':id', $id);
+			$stmt->execute();
+			$data = $stmt->fetch();
+		} catch (Exception $e) {
+			$error[] = ['msg' => $e->getMessage(), 'type' => 'CRITICAL'];
+		}
+
+		if (empty($data)) {
+			$error[] = ['msg' => 'No Experience found', 'type' => 'WARNING'];
+		}
+		include './Views/form.experience.view.php';
+	}
+
+	public function update($paramaters) {
+		$id = $paramaters['id'];
+		if (!isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
+			header("Location: /projects/$id");
+			exit;
+		}
+
+		$user_id = intval($_POST['user_id']);
+		$company = htmlspecialchars($_POST['company']);
+		$func = htmlspecialchars($_POST['func'] ?? null);
+		$date_from = $_POST['date_from'];
+		$date_to = $_POST['date_to'];
+
+		$conn = self::initialize();
+		try {
+			$stmt = $conn->prepare('UPDATE experience SET user_id = :user_id, company = :company, func = :func, date_from = :date_from, date_to = :date_to WHERE id = :id');
+			$stmt->bindParam(':id', $id);
+			$stmt->bindParam(':user_id', $user_id);
+			$stmt->bindParam(':company', $company);
+			$stmt->bindParam(':func', $func);
+			$stmt->bindParam(':date_from', $date_from);
+			$stmt->bindParam(':date_to', $date_to);
+			$stmt->execute();
+		} catch (Exception $e) {
+		}
+
+		$this->updateView($paramaters);
+	}
+
+	public function delete($paramaters) {
+		$id = $paramaters['id'];
+		if (!isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
+			header('Location: /ervaring');
+			exit;
+		}
+
+		$conn = self::initialize();
+		try {
+			$stmt = $conn->prepare('DELETE FROM experience WHERE id = :id');
+			$stmt->bindParam(':id', $id);
+			$stmt->execute();
+		} catch (Exception $e) {
+		}
+
+		header('Location: /ervaring');
+		exit;
+	}
 }
