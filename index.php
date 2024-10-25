@@ -21,4 +21,9 @@ $router->addRoute('POST', '/projects/:id', ['ProjectController', 'updateProject'
 $router->addRoute('GET', '/projects/:id/delete', ['ProjectController', 'deleteProject']);
 $router->addRoute('GET', '/projects/:id/update', ['ProjectController', 'updateProjectView']);
 
+
+$router->addRoute('GET', '/ervaring', ['ExperienceController', 'index']);
+$router->addRoute('POST', '/ervaring', ['ExperienceController', 'create']);
+$router->addRoute('GET', '/ervaring/create', ['ExperienceController', 'createView']);
+
 $router->matchRoute();
