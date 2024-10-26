@@ -116,3 +116,14 @@ nav a:hover {
 #admin-section>.delete {
 	color: red;
 }
+
+figure {
+	max-height: 400px;
+}
+figure img {
+	max-height: 380px;
+}
+figcaption {
+	text-align: center;
+	color: #777;
+}

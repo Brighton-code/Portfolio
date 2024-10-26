@@ -28,7 +28,14 @@ if (isset($error) && !empty($error)) {
 		<!-- photo -->
 		<section id="photo" class="border">
 			<div class="legend">Photo</div>
-			<img src="/Public/img/notion-avatar-brighton.svg" alt="character Brighton van Rouendal" width="100%" height="100%">
+			<figure hidden>
+				<img src="/Public/img/notion-avatar-brighton.svg" alt="character Brighton van Rouendal" width="100%" height="100%">
+				<figcaption><em>Illustrations designed by Felix Wong</em></figcaption>
+			</figure>
+			<figure>
+				<img src="/Public/img/avataaars-brighton.svg" alt="character Brighton van Rouendal" width="100%" height="100%">
+				<figcaption><em>Illustrations designed by Pablo Stanley</em></figcaption>
+			</figure>
 		</section>
 		<!-- about -->
 		<section id="about" class="border">
