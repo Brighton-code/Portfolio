@@ -28,7 +28,7 @@ if (isset($error) && !empty($error)) {
 		<!-- photo -->
 		<section id="photo" class="border">
 			<div class="legend">Photo</div>
-			<img src="#" alt="photo Brighton van Rouendal" width="100%" height="100%">
+			<img src="/Public/img/notion-avatar-brighton.svg" alt="character Brighton van Rouendal" width="100%" height="100%">
 		</section>
 		<!-- about -->
 		<section id="about" class="border">
