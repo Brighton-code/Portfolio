@@ -3,7 +3,7 @@
 		<a class="border link" href="/">Home</a>
 		<a class="border link" href="/projects">Projects</a>
 		<a class="border link" href="/ervaring">Ervaring</a>
-		<a class="border link" href="#blog">Blog</a>
+		<a class="border link" href="/blog">Blog</a>
 		<?php if (isset($_SESSION['user_id']) && $_SESSION['user_id']): ?>
 			<a class="border link" href="/logout">logout</a>
 		<?php else: ?>
