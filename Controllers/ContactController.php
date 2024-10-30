@@ -1,9 +1,9 @@
 <?php
 class ContactController extends Database {
-	public function index() {
+	public function index($created = false) {
 		$error = [];
 		$data = [];
-		if ($_SESSION['is_admin']) {
+		if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']) {
 			$conn = self::initialize();
 			try {
 				$stmt = $conn->prepare('SELECT * FROM contact');
@@ -49,6 +49,27 @@ class ContactController extends Database {
 			$error[] = ['msg' => $e->getMessage(), 'type' => 'CRITICAL'];
 			$created = false;
 		}
-		include './Views/contact.view.php';
+		$this->index($created);
+		// include './Views/contact.view.php';
+	}
+
+	public function delete($paramaters) {
+		$id = $paramaters['id'];
+
+		if (!isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
+			header('Location: /contact');
+			exit;
+		}
+
+		$conn = self::initialize();
+		try {
+			$stmt = $conn->prepare('DELETE FROM contact where id = :id');
+			$stmt->bindParam(':id', $id);
+			$stmt->execute();
+		} catch (Exception $e) {
+			$error[] = ['msg' => $e->getMessage(), 'type' => 'CRITICAL'];
+		}
+		header('Location: /contact');
+		exit;
 	}
 }

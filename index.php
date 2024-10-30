@@ -15,6 +15,7 @@ $router->addRoute('GET', '/logout', ['AccountController', 'logout']);
 
 $router->addRoute('GET', '/contact', ['ContactController', 'index']);
 $router->addRoute('POST', '/contact', ['ContactController', 'create']);
+$router->addRoute('GET', '/contact/:id/delete', ['ContactController', 'delete']);
 
 $router->addRoute('GET', '/projects', ['ProjectController', 'index']);
 $router->addRoute('POST', '/projects', ['ProjectController', 'createProject']);
