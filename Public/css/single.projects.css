@@ -70,6 +70,23 @@ main>section {
 .links a p {
 	font-size: 1.5rem;
 }
+.created {
+	display: flex;
+	justify-content: center;
+}
+.created h1 {
+	font-size: 1.75rem;
+	text-align: center;
+	color: green;
+}
+.admin-section, .admin-section td {
+	overflow: hidden;
+}
+.admin-section .delete {
+	color: red;
+	font-weight: 700;
+}
+
 
 @media only screen and (max-width: 650px) {
 	.save-form input, .save-form textarea, .save-form button {

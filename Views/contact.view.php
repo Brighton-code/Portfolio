@@ -20,14 +20,47 @@ if (isset($error) && !empty($error)) {
 				<p>CV</p>
 			</a>
 		</section>
+		<?php if (isset($error) && empty($error) && isset($created) && $created): ?>
+			<section class="border created">
+				<h1>Succesfully created contact message</h1>
+			</section>
+		<?php endif; ?>
 		<section class="border">
 			<form class="save-form" action="/contact" method="post">
 				<input class="border" type="text" name="name" maxlength="50" required placeholder="Name">
-				<input class="border" type="email" name="email" placeholder="Email"></input>
+				<input class="border" type="email" name="email" required placeholder="Email"></input>
 				<textarea class="border" name="message" rows="10" required placeholder="Message"></textarea>
 				<button class="border" type="submit">Submit</button>
 			</form>
 		</section>
+		<?php if (isset($_SESSION['is_admin']) && $_SESSION['is_admin']): ?>
+			<section class="border admin-section">
+				<table>
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Name</th>
+							<th>Email</th>
+							<th>Message</th>
+							<th>Created</th>
+							<th>Delete</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php foreach ($data as $contact): ?>
+							<tr>
+								<td><?= $contact['id'] ?></td>
+								<td><?= $contact['name'] ?></td>
+								<td><?= $contact['email'] ?></td>
+								<td><?= $contact['message'] ?></td>
+								<td><?= $contact['created_at'] ?></td>
+								<td><a class="delete" href="/contact/<?= $contact['id'] ?>/delete">Delete</a></td>
+							</tr>
+						<?php endforeach; ?>
+					</tbody>
+				</table>
+			</section>
+		<?php endif; ?>
 	</main>
 </div>
 
