@@ -36,3 +36,12 @@ form button {
 	font-size: 3rem;
 	transition: border-color 1.5s, color 1s, background-color 1s;
 }
+
+@media only screen and (max-width: 650px) {
+	form input {
+		max-width: 400px;
+	}
+	form button {
+		min-width: 400px;
+	}
+}

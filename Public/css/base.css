@@ -160,3 +160,22 @@ figcaption {
 	text-align: center;
 	color: #777;
 }
+
+@media only screen and (max-width: 650px) {
+	header {
+		height: fit-content;
+	}
+	nav {
+		gap: 10px;
+		flex-direction: column;
+	}
+}
+@media only screen and (max-width: 950px) and (min-width:651px) {
+	nav {
+		overflow: hidden;
+	}
+	nav a {
+		font-size: x-large;
+	}
+}
+

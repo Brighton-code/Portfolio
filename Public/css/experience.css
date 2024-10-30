@@ -51,3 +51,9 @@ main>section {
 .admin-section>.delete {
 	color: red;
 }
+
+@media only screen and (max-width: 950px) {
+	main>section {
+		flex: 90%;
+	}
+}

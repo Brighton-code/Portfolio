@@ -70,3 +70,10 @@ main>section {
 .links a p {
 	font-size: 1.5rem;
 }
+
+@media only screen and (max-width: 650px) {
+	.save-form input, .save-form textarea, .save-form button {
+		max-width: 400px;
+		min-width: 400px;
+	}
+}

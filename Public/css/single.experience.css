@@ -39,3 +39,19 @@ main>section {
 	min-width: 40%;
 	font-size: 2.5rem;
 }
+
+@media only screen and (max-width: 650px) {
+	.date-section {
+		flex-direction: column;
+	}
+	.date-section input {
+		max-width: 400px;
+		min-width: 400px;
+	}
+	.save-form input,
+	.save-form textarea,
+	.save-form button {
+		max-width: 400px;
+		min-width: 400px;
+	}
+}

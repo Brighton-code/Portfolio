@@ -31,3 +31,8 @@ main>section {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+@media only screen and (max-width: 950px) {
+	main > section{
+		flex: 90%;
+	}
+}
