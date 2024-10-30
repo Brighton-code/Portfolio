@@ -53,3 +53,20 @@ main>section {
 	font-size: 3rem;
 	transition: border-color 1.5s, color 1s, background-color 1s;
 }
+
+/* Contact form css */
+.contact {
+	display: flex;
+	flex-direction: column;
+	gap: 40px;
+}
+.links {
+	padding: 20px 0;
+	justify-content: center;
+}
+.links a {
+	padding: 16px 8px;
+}
+.links a p {
+	font-size: 1.5rem;
+}
