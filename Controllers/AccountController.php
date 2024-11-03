@@ -54,6 +54,7 @@ class AccountController extends Database {
 			return;
 		}
 
+		// Set session variables to data from database
 		$_SESSION['user_id'] = $data['id'];
 		$_SESSION['username'] = $data['name'];
 		$_SESSION['is_admin'] = $data['is_admin'] ? true : false;
@@ -65,6 +66,7 @@ class AccountController extends Database {
 	}
 
 	public function register() {
+		// Creatie van een Admin Account
 		$username = 'Admin';
 		$password = getenv('TMP_PASS');
 		$password = password_hash($password, PASSWORD_DEFAULT);
