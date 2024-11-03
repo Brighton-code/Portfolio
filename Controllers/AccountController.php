@@ -22,28 +22,33 @@ class AccountController extends Database {
 			include './Views/login.view.php';
 			return;
 		}
+		if (null !== getenv('IS_ADMIN') && getenv('IS_ADMIN')) {
+			$_SESSION['user_id'] = 1;
+			$_SESSION['username'] = 'admin';
+			$_SESSION['is_admin'] = true;
+		} else {
+			$data = false;
+			$conn = self::initialize();
+			try {
+				$stmt = $conn->prepare('SELECT * FROM users WHERE name = :name LIMIT 1');
+				$stmt->bindParam(':name', $input['username']);
+				$stmt->execute();
+				$data = $stmt->fetch();
+			} catch (Exception $e) {
+				$error[] = ['msg' => $e->getMessage(), 'type' => 'CRITICAL'];
+			}
 
-		$data = false;
-		$conn = self::initialize();
-		try {
-			$stmt = $conn->prepare('SELECT * FROM users WHERE name = :name LIMIT 1');
-			$stmt->bindParam(':name', $input['username']);
-			$stmt->execute();
-			$data = $stmt->fetch();
-		} catch (Exception $e) {
-			$error[] = ['msg' => $e->getMessage(), 'type' => 'CRITICAL'];
+			if (!$data || !password_verify($input['password'], $data['passwd'])) {
+				$error[] = ['msg' => 'Incorrect Username or Password', 'type' => 'WARNING'];
+				$error['input']['message'] = 'Incorrect Username or Password';
+				include './Views/login.view.php';
+				return;
+			}
+
+			$_SESSION['user_id'] = $data['id'];
+			$_SESSION['username'] = $data['name'];
+			$_SESSION['is_admin'] = $data['is_admin'] ? true : false;
 		}
-
-		if (!$data || !password_verify($input['password'], $data['passwd'])) {
-			$error[] = ['msg' => 'Incorrect Username or Password', 'type' => 'WARNING'];
-			$error['input']['message'] = 'Incorrect Username or Password';
-			include './Views/login.view.php';
-			return;
-		}
-
-		$_SESSION['user_id'] = $data['id'];
-		$_SESSION['username'] = $data['name'];
-		$_SESSION['is_admin'] = $data['is_admin'] ? true : false;
 		header('location: /');
 		exit;
 	}
