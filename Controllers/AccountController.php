@@ -14,6 +14,7 @@ class AccountController extends Database {
 		foreach ($input as $key => $is_set) {
 			if (!$is_set) {
 				$error[] = ['msg' => "$key not send", 'type' => 'CRITICAL'];
+				$error['input'][$key] = "$key required";
 			}
 		}
 
@@ -35,6 +36,7 @@ class AccountController extends Database {
 
 		if (!$data || !password_verify($input['password'], $data['passwd'])) {
 			$error[] = ['msg' => 'Incorrect Username or Password', 'type' => 'WARNING'];
+			$error['input']['message'] = 'Incorrect Username or Password';
 			include './Views/login.view.php';
 			return;
 		}
