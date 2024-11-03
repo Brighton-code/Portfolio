@@ -1,7 +1,6 @@
 <?php include 'layouts/head.php';
-if (isset($error) && !empty($error)) {
-	var_dump($error);
-}
+include 'layouts/admin_error.php'
+
 ?>
 
 <link rel="stylesheet" href="/Public/css/404.css">
