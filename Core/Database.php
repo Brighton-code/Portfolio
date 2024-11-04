@@ -1,6 +1,9 @@
 <?php
 
 class Database {
+	/**
+	 * Create database connection with enviroment variables
+	 */
 	public static function initialize() {
 		try {
 			$dsn = sprintf('mysql:host=%s;port=%s;dbname=%s;', getenv('DB_HOST'), getenv('DB_PORT'), getenv('DB_NAME'));

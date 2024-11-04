@@ -69,6 +69,7 @@ class ProjectController extends Database {
 		include './Views/form.projects.view.php';
 	}
 
+	// Update project by id from uri
 	public function updateProject($paramaters) {
 		$id = $paramaters['id'];
 		if (!isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
@@ -95,6 +96,7 @@ class ProjectController extends Database {
 		$this->updateProjectView($paramaters);
 	}
 
+	// Delete project by id from uri
 	public function deleteProject($paramaters) {
 		$id = $paramaters['id'];
 		if (!isset($_SESSION['is_admin']) || !$_SESSION['is_admin']) {
@@ -114,6 +116,11 @@ class ProjectController extends Database {
 		exit;
 	}
 
+	/**
+	 * @param int 	$id		Id of row from databse
+	 * 
+	 * get project by id 
+	 */
 	private function getProjectById($id) {
 		$error = [];
 		$data = [];

@@ -15,6 +15,14 @@ declare(strict_types=1);
 
 class Router {
 	protected array $routes = [];
+
+	/**
+	 * Split uri up into sections based on "/"
+	 * 
+	 * @param string 	$uri		Uri to be split
+	 * 
+	 * @return array 	Split up uri as array values
+	 */
 	private function parseUri(string $uri): array {
 		$uri = parse_url($uri, PHP_URL_PATH); // parse url to strip params and unused charters
 		$uri = trim($uri, '/'); // removes '/' from beginning and end
@@ -28,6 +36,12 @@ class Router {
 
 	/**
 	 * Change $method to use enum?
+	 * 
+	 * @param string 	$method		HTTP METHOD (GET, POST)
+	 * @param string	$uri		Url after .com, .nl, etc
+	 * @param array		$controller	An array of [Controller name, Method name]
+	 * 
+	 * $uri can also have variables in the uri these are set with a ":" at the start of the section
 	 */
 	public function addRoute(string $method, string $uri, array $controller): void {
 		$uri = $this->parseUri($uri);
@@ -43,6 +57,15 @@ class Router {
 		];
 	}
 
+	/**
+	 * Get current uri split the sections
+	 * Get used method to request uri
+	 * 
+	 * Search through added routes and only use the once where the method is the same
+	 * Search through each section if they arent the same stop en go trough routes list again
+	 * If section starts with ":" treat it as valid and use insert it as a key=>value into a array
+	 * Send this array to the controller method
+	 */
 	public function matchRoute(): void {
 		$uri = $this->parseUri($_SERVER['REQUEST_URI']); // array of uri sections of current uri
 		$uriLength = count($uri); // length of uri sections
